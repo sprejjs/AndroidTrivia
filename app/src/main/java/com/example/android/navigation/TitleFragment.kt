@@ -30,10 +30,7 @@ class TitleFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        view?.findNavController()?.let {
-            return NavigationUI.onNavDestinationSelected(item, it)
-        }
-
-        return super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController()) ||
+                super.onOptionsItemSelected(item)
     }
 }
